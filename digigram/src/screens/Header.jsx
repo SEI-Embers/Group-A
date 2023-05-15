@@ -12,8 +12,8 @@ const Header = () => {
         <Link to="/" className="menu-item">
           Home
         </Link>
-        <Link to="/explore" className="menu-item">
-          Explore
+        <Link to="/addpost" className="menu-item">
+          Add Post
         </Link>
         <Link to="/profile" className="menu-item">
           Profile
