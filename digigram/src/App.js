@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { React, useState, useEffect } from "react";
+import { verifyUser } from "./services/user.js";
+import Home from "./screens/Home.jsx"
+import SignIn from "./screens/SignIn.jsx"
+import Nav from "./components/Nav.jsx"
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await verifyUser()
+      user ? setUser(user) : setUser(null)
+    }
+    fetchUser()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        {user ? <Route path="/home" element={<Home />} /> : <Route path="/" element={<SignIn />} /> }
+      </Routes>
+      {user ? <Nav /> : <></> }
     </div>
   );
 }
