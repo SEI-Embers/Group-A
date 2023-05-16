@@ -1,3 +1,4 @@
+import logo from '../public/digi2.png';
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { React, useState, useEffect } from "react";
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      {user ? <Header img src={logo} className="App-logo" alt="logo" /> : <></>}
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
@@ -33,7 +35,6 @@ function App() {
         <Route path="/post" element={<AddPost />} />
         <Route path="/update" element={<UpdateUser />} />
       </Routes>
-      {user ? <Nav /> : <></>}
     </div>
   );
 }

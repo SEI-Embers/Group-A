@@ -1,25 +1,42 @@
-import { useState, useEffect } from 'react'
-import Posts from "../components/Post.jsx"
+import { React, useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Header from './Header';
+import Post from './Post';
+import './Home.css'
 import { getPosts } from '../services/post.js'
 
-export default function Home() {
-    const [ posts, setPosts ] = useState([])
+const Container = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+`;
 
-const fetchPosts = async () => {
+const Posts = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+`;
+
+const Home = () => {
+  const [ posts, setPosts ] = useState([])
+  const fetchPosts = async () => {
     const allPosts = await getPosts()
     setPosts(allPosts)
-}
+  }
 
-useEffect(() => {
+  useEffect(() => {
     fetchPosts()
-}, [posts])
-
-    return (
-        <>
-        <h1>Digigram</h1>
-        {posts.map((post) => (
-            <Posts key={post._id} post={post} />
+  }, [posts])
+  
+  return (
+    <Container>
+      <Header />
+      <Posts>
+        {posts.map((post, index) => (
+          <Post key={index} post={post} />
         ))}
-        </>
-    )
-}
+      </Posts>
+    </Container>
+  );
+};
+
+export default Home;
