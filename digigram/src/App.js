@@ -1,24 +1,43 @@
+
 import logo from './digi2.png';
 import './App.css';
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './screens/Home';
-import Profile from './screens/Profile.jsx';
+import { Routes, Route } from "react-router-dom";
+import { React, useState, useEffect } from "react";
+import { verifyUser } from "./services/user.js";
+import SignIn from "./screens/SignIn.jsx";
+import SignUp from "./screens/SignUp.jsx";
+import SignOut from "./screens/SignOut.jsx";
+import Home from "./screens/Home.jsx";
+import Profile from "./screens/Profile.jsx";
+import AddPost from "./screens/AddPost.jsx";
+import UpdateUser from "./screens/UpdateUser.jsx";
 import Settings from './screens/Settings';
-import Post from './components/Post';
-import AddPost from './screens/AddPost';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await verifyUser();
+      user ? setUser(user) : setUser(null);
+    };
+    fetchUser();
+  }, []);
+
   return (
-    <Router>
-      <div className="App">
-        <Route exact path="/" component={() => <Home img={logo} />} />
+    <div className="App">
+      {user ? <Header img src={logo} className="App-logo" alt="logo" /> : <></>}
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-out" element={<SignOut />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/post/:postId" component={Post} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/addpost" component={AddPost} /> 
-        <Route path="/settings" component={Settings} />
-      </div>
-    </Router>
+        <Route path="/addpost" element={<AddPost />} />
+        <Route path="/settings" element={<settings />} />
+      </Routes>
+    </div>
   );
 }
 
