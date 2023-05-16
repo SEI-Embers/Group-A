@@ -8,8 +8,8 @@ const getToken = () => {
 
 const api = axios.create({
     baseURL: process.env.NODE_ENV === 'production'
-        // ? 'https://herokuapp.com//'
-        // : 'http://localhost:8000/'
+        ? 'http://localhost:8000/'
+        : 'https://digi-be.herokuapp.com/'
 })
 
 api.interceptors.request.use(async function (config) {

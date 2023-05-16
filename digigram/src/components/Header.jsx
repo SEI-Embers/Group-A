@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import './AddPost.jsx'
-import './Home.jsx'
-import './Profile.jsx'
-import './Settings.jsx'
+import '../screens/AddPost.jsx'
+import '../screens/Home.jsx'
+import '../screens/Profile.jsx'
+import '../screens/Settings.jsx'
 
 const Header = () => {
   return (
     <div className="header">
       <Link to="/" className="logo">
-        Instagram
+        Digigram
       </Link>
       <div className="menu">
         <Link to="/" className="menu-item">
