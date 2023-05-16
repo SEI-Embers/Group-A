@@ -1,29 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import './AddPost.jsx'
-import './Home.jsx'
-import './Profile.jsx'
-import './Settings.jsx'
+import logo from './logo.png';
+import addPostIcon from '../addpost.png';
+import homeIcon from '../home.png';
+import profileIcon from '../profile.png';
+import settingsIcon from '../settings.png';
 
 const Header = () => {
   return (
     <div className="header">
       <Link to="/" className="logo">
-        Instagram
+        <img src={logo} alt="Logo" />
       </Link>
       <div className="menu">
         <Link to="/" className="menu-item">
-          Home
+          <img src={homeIcon} alt="Home" />
         </Link>
         <Link to="/addpost" className="menu-item">
-          Add Post
+          <img src={addPostIcon} alt="Add Post" />
         </Link>
         <Link to="/profile" className="menu-item">
-          Profile
+          <img src={profileIcon} alt="Profile" />
         </Link>
         <Link to="/settings" className="menu-item">
-          Settings
+          <img src={settingsIcon} alt="Settings" />
         </Link>
         <Link to="/sign-out" className="menu-item">
           Sign Out
