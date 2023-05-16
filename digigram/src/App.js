@@ -6,28 +6,17 @@ import Home from './screens/Home';
 import Profile from './screens/Profile.jsx';
 import Settings from './screens/Settings';
 import Post from './components/Post';
-import AddPost from './screens/AddPost'
+import AddPost from './screens/AddPost';
 
 function App() {
   return (
     <Router>
       <div className="App">
-   
-          <Route exact path="/">
-            <Home img src={logo}/>
-          </Route>
-          <Route path="/post/:postId">
-            <Post />
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          {/* <Route path="/addpost">
-            <AddPost /> */}
-          </Route>
-          <Route path="/settings">
-            <Settings />
-          </Route>
-      
+        <Route exact path="/" component={() => <Home img={logo} />} />
+        <Route path="/post/:postId" component={Post} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/addpost" component={AddPost} /> 
+        <Route path="/settings" component={Settings} />
       </div>
     </Router>
   );
