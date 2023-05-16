@@ -1,5 +1,6 @@
-import logo from '../public/digi2.png';
-import "./App.css";
+
+import logo from './digi2.png';
+import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 import { verifyUser } from "./services/user.js";
@@ -10,7 +11,7 @@ import Home from "./screens/Home.jsx";
 import Profile from "./screens/Profile.jsx";
 import AddPost from "./screens/AddPost.jsx";
 import UpdateUser from "./screens/UpdateUser.jsx";
-import Nav from "./components/Nav.jsx";
+import Settings from './screens/Settings';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,8 +33,9 @@ function App() {
         <Route path="/sign-out" element={<SignOut />} />
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/post" element={<AddPost />} />
-        <Route path="/update" element={<UpdateUser />} />
+        <Route path="/post/:postId" component={Post} />
+        <Route path="/addpost" element={<AddPost />} />
+        <Route path="/settings" element={<settings />} />
       </Routes>
     </div>
   );
