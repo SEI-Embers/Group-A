@@ -10,7 +10,7 @@ const SignOut = (props) => {
     const signOutUser = async () => {
       await signOut()
       setUser(null)
-      navigate('/')
+      navigate('/sign-in')
     }
     signOutUser()
   }, [navigate, setUser])

@@ -24,9 +24,9 @@ const Profile = ({ username, avatar, posts, followers, following }) => {
         </div>
       </div>
       <div>
-        {posts.map((post, index) => (
+        {posts ? posts.map((post, index) => (
           <img key={index} src={post} alt={`${username} post`} />
-        ))}
+        )) : <div>No Photos</div>}
       </div>
     </div>
   );
