@@ -1,11 +1,32 @@
-import logo from '../public/digi2.png';
+import logo from './digi2.png';
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './screens/Home';
+import Profile from './screens/Profile.jsx';
+import Settings from './screens/Settings';
+import Post from './components/Post';
 
 function App() {
   return (
-    <div className="App">
-      <Header img src={logo} className="App-logo" alt="logo" />
-    </div>
+    <Router>
+      <div className="App">
+   
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+          <Route path="/post/:postId">
+            <Post />
+          </Route>
+      
+      </div>
+    </Router>
   );
 }
 

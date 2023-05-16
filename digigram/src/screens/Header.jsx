@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import './AddPost.jsx'
+import './Home.jsx'
+import './Profile.jsx'
+import './Settings.jsx'
 
 const Header = () => {
   return (

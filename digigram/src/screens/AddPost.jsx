@@ -31,7 +31,7 @@ function AddPost({ onSubmit }) {
           type="text"
           value={image}
           onChange={handleImageChange}
-          placeholder="https://example.com/image.jpg"
+          placeholder="../digi10.png"
           required
         />
       </div>
