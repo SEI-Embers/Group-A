@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Post.css";
+import "./Posts.css";
 
 const Posts = ({ username, avatar, image, caption }) => {
   return (
@@ -17,7 +17,7 @@ const Posts = ({ username, avatar, image, caption }) => {
   );
 };
 
-Post.propTypes = {
+Posts.propTypes = {
   username: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,

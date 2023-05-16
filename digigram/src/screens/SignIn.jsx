@@ -34,7 +34,7 @@ export default function SignIn() {
     <>
       <h1>Digigram</h1>
 
-      <form onSubmit={SignIn}>
+      <form onSubmit={handleSubmit}>
         <div className="sign-in">
           <h3>Sign In</h3>
           <input

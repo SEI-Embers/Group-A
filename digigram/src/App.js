@@ -10,8 +10,8 @@ import SignOut from "./screens/SignOut.jsx";
 import Home from "./screens/Home.jsx";
 import Profile from "./screens/Profile.jsx";
 import AddPost from "./screens/AddPost.jsx";
-import UpdateUser from "./screens/UpdateUser.jsx";
 import Settings from './screens/Settings';
+import Header from './screens/Header';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,14 +28,14 @@ function App() {
     <div className="App">
       {user ? <Header img src={logo} className="App-logo" alt="logo" /> : <></>}
       <Routes>
-        <Route path="/" element={<SignIn />} />
+        {user ? <Route path="/" element={<Home />} />
+ : <Route path="/" element={<SignIn />} />}
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-out" element={<SignOut />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/post/:postId" component={Post} />
         <Route path="/addpost" element={<AddPost />} />
-        <Route path="/settings" element={<settings />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </div>
   );

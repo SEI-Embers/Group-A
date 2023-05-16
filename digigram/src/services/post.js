@@ -5,6 +5,6 @@ export const getPosts = async () => {
         const response = await api.get("/post")
         return response.data;
     } catch (error) {
-        console.error(`Failed to get pledges - error: ${error}`);
+        console.error(`Failed to get posts - error: ${error}`);
     }
 };

@@ -25,6 +25,9 @@ const Header = () => {
         <Link to="/settings" className="menu-item">
           Settings
         </Link>
+        <Link to="/sign-out" className="menu-item">
+          Sign Out
+        </Link>
       </div>
     </div>
   );
