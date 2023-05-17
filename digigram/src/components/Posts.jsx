@@ -7,9 +7,8 @@ import { useState, useEffect } from "react";
 const Posts = ({post}) => {
   const [ postUser, setPostUser ] = useState({})
   const fetchPostUser = async () => {
-    const user = await getAccount(1)
+    const user = await getAccount(post.account)
     setPostUser(user)
-    console.log(user)
   }
 
   useEffect(() => {
