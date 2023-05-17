@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Profile.css';
 
-const Profile = ({ username, avatar }) => {
+const ProfileComponent = () => {
   const [userData, setUserData] = useState(null);
   const [userPosts, setUserPosts] = useState([]);
 
@@ -34,34 +34,36 @@ const Profile = ({ username, avatar }) => {
   };
 
   return (
-    <div>
-      <div>
-        <img src={avatar} alt={`${username} avatar`} />
-        <div>{username}</div>
-        <button>Follow</button>
-      </div>
-      <div>
-        {userData && (
-          <div>
-            <div>
-              <div>{userData.posts}</div>
-              <div>Posts</div>
-            </div>
-            <div>
-              <div>{userData.followers}</div>
-              <div>Followers</div>
-            </div>
-            <div>
-              <div>{userData.following}</div>
-              <div>Following</div>
-            </div>
+    <div className="profile-container">
+      {userData && (
+        <div className="profile-header">
+          <img src={userData.profile_pic} alt={`${userData.username} avatar`} className="profile-avatar" />
+          <div>{userData.username}</div>
+          <button>Follow</button>
+        </div>
+      )}
+
+      {userData && (
+        <div className="profile-stats">
+          <div className="stat">
+            <div className="stat-value">{userData.posts.length}</div>
+            <div className="stat-label">Posts</div>
           </div>
-        )}
-      </div>
-      <div>
+          <div className="stat">
+            <div className="stat-value">{userData.followers}</div>
+            <div className="stat-label">Followers</div>
+          </div>
+          <div className="stat">
+            <div className="stat-value">{userData.following}</div>
+            <div className="stat-label">Following</div>
+          </div>
+        </div>
+      )}
+
+      <div className="profile-posts">
         {userPosts.length > 0 ? (
-          userPosts.map((post, index) => (
-            <img key={index} src={post} alt={`${username} post`} />
+          userPosts.map((post) => (
+            <img key={post.id} src={post.caption} alt={`${userData.username} post`} className="profile-post" />
           ))
         ) : (
           <div>No Photos</div>
@@ -71,4 +73,4 @@ const Profile = ({ username, avatar }) => {
   );
 };
 
-export default Profile;
+export default ProfileComponent;
