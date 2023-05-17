@@ -19,7 +19,6 @@ const Home = () => {
   
   return (
     <div className='container'>
-      <Header />
       {posts ? posts.map((post, index) => (
         <Posts key={index} post={post}/>
       )): <div>NO POSTS</div>}
