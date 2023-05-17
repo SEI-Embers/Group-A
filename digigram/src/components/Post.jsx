@@ -4,9 +4,12 @@ import "./Post.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
+import Header from "./Header";
 
 function Post({ user, postImage, likes, timestamp }) {
   return (
+    <> 
+    <Header />
     <div className="post">
       <div className="post__header">
         <div className="post__headerAuthor">
@@ -36,6 +39,7 @@ function Post({ user, postImage, likes, timestamp }) {
         Liked by {likes} people.
       </div>
     </div>
+    </> 
   );
 }
 
