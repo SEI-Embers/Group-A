@@ -29,7 +29,7 @@ export default function SignIn(props) {
       const user = await signIn(form)
       setUser(user)
       console.log(user)
-      // navigate('/')
+      navigate('/')
     } catch (error) {
       console.error(error)
       setForm({
