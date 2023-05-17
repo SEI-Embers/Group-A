@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { createPost } from "../services/post";
 import './AddPost.css'
 
-function AddPost({ onSubmit }) {
-  const [image, setImage] = useState("");
-  const [caption, setCaption] = useState("");
+function AddPost(props) {
+  const [post, setPost] = useState({
+    image: '',
+    caption: '',
+  })
+  // const [image, setImage] = useState("");
+  // const [caption, setCaption] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSubmit({ image, caption });
-    setImage("");
-    setCaption("");
+    await createPost(post);
   };
 
-  const handleImageChange = (event) => {
-    setImage(event.target.value);
+  const handleChange = (event) => {
+    setPost({...post, [event.target.name]: event.target.value,});
   };
 
-  const handleCaptionChange = (event) => {
-    setCaption(event.target.value);
-  };
+  const { image, caption } = post
 
   return (
     <form onSubmit={handleSubmit} className="add-post-form">
@@ -30,7 +30,7 @@ function AddPost({ onSubmit }) {
           id="image-input"
           type="text"
           value={image}
-          onChange={handleImageChange}
+          onChange={handleChange}
           placeholder="../digi10.png"
           required
         />
@@ -40,7 +40,7 @@ function AddPost({ onSubmit }) {
         <textarea
           id="caption-input"
           value={caption}
-          onChange={handleCaptionChange}
+          onChange={handleChange}
           placeholder="Write a caption..."
           required
         />
@@ -51,9 +51,5 @@ function AddPost({ onSubmit }) {
     </form>
   );
 }
-
-AddPost.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
 
 export default AddPost;
