@@ -1,17 +1,42 @@
 import { useState } from "react";
+import { signIn } from '../services/user.js'
+import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-export default function SignIn() {
+export default function SignIn(props) {
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
     username: "",
     password: "",
     isError: false,
     errorMsg: "",
   });
+
   const handleChange = (event) => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
     });
+  };
+  
+  const onSignIn = async (event) => {
+    event.preventDefault()
+    const { setUser } = props
+    console.log(form)
+    try {
+      const user = await signIn(form)
+      setUser(user)
+      navigate('/')
+    } catch (error) {
+      console.error(error)
+      setForm({
+        isError: true,
+        errorMsg: 'Incorrect username and/or password. Try again.',
+        username: '',
+        password: '',
+      })
+    }
   };
 
   const renderError = () => {
@@ -26,34 +51,37 @@ export default function SignIn() {
       return <button type="submit">Sign In</button>;
     }
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+
+  const { username, password} = form
 
   return (
     <>
       <h1>Digigram</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSignIn}>
         <div className="sign-in">
           <h3>Sign In</h3>
           <input
             required
+            type="text"
             name="username"
-            value={form.username}
+            value={username}
             placeholder="Enter username"
             onChange={handleChange}
           />
           <input
             required
+            type="password"
             name="password"
-            value={form.password}
+            value={password}
             placeholder="Enter password"
             onChange={handleChange}
           />
           {renderError()}
         </div>
       </form>
-    </>
+      <Link to="/sign-up" >
+          Sign Up
+        </Link>    </>
   );
 }

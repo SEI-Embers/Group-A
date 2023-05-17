@@ -1,12 +1,14 @@
 import { useState } from "react";
-// import signup from '../services'
+import { signUp } from '../services/user.js'
+import { useNavigate } from 'react-router-dom'
 
-export default function SignUp() {
+export default function SignUp(props) {
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
-    name: "",
-    email: "",
+    username: "",
     password: "",
-    confirmPassword: "",
+    re_password: "",
     isError: false,
     errorMsg: "",
   });
@@ -16,6 +18,25 @@ export default function SignUp() {
       ...form,
       [event.target.name]: event.target.value,
     });
+  };
+  
+  const onSignUp = async (event) => {
+    event.preventDefault();
+    const { setUser } = props
+    try {
+      const user = await signUp(form)
+      setUser(user)
+      navigate('/')
+    } catch (error) {
+      console.error(error)
+      setForm({
+        username: "",
+        password: "",
+        re_password: "",
+        isError: true,
+        errorMsg: "Sign Up Details Invalid",
+      })
+    }
   };
 
   const renderError = () => {
@@ -31,32 +52,30 @@ export default function SignUp() {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+  const { username, password, re_password } = form
 
   return (
     <>
       <h3>Welcome! Create Account 😃</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSignUp}>
         <div className="container">
           <div className="sign-up">
-            <label>Email</label>
+            {/* <label>Email</label>
             <input
               required
               type="text"
               name="email"
-              value={form.email}
+              value={email}
               placeholder="Enter Email"
               onChange={handleChange}
-            />
+            /> */}
 
             <label>Username</label>
             <input
               required
               type="text"
               name="username"
-              value={form.username}
+              value={username}
               placeholder="Enter Username"
               onChange={handleChange}
             />
@@ -64,9 +83,9 @@ export default function SignUp() {
             <label>Password</label>
             <input
               required
-              type="text"
+              type="password"
               name="password"
-              value={form.password}
+              value={password}
               placeholder="Enter password"
               onChange={handleChange}
             />
@@ -74,9 +93,9 @@ export default function SignUp() {
             <label>Confirm Password</label>
             <input
               required
-              type="text"
-              name="confirnPassword"
-              value={form.confirmPassword}
+              type="password"
+              name="re_password"
+              value={re_password}
               placeholder="Confirm Password"
               onChange={handleChange}
             />
