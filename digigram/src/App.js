@@ -1,4 +1,5 @@
-import logo from './digi2.png';
+
+import logo from './logo.png';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { React, useState } from "react";
