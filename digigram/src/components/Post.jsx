@@ -23,7 +23,7 @@ function Post({ user, postImage, likes, timestamp }) {
         <div className="post__footerIcons">
           <div className="post__iconsMain">
             <button>
-              <FavoriteBorderIcon className="postIcon" />
+              <FavoriteBorderIcon className="postIcon" width="100" />
             </button>
             <button>
               <ChatBubbleOutlineIcon className="postIcon" />
