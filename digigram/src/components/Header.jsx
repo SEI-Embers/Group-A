@@ -6,6 +6,7 @@ import addPostIcon from '../addpost.png';
 import homeIcon from '../home.png';
 import profileIcon from '../profile.png';
 import settingsIcon from '../settings.png';
+import signoutIcon from '../signout.png'
 
 const Header = () => {
   return (
@@ -26,8 +27,8 @@ const Header = () => {
         <Link to="/settings" className="menu-item">
           <img className="icon" src={settingsIcon} alt="Settings" />
         </Link>
-        <Link to="/sign-out" className="menu-item">
-          Sign Out
+        <Link to="/sign-out" className="menu-item signout">
+        <img className="icon" src={signoutIcon} alt="Sign Out" />
         </Link>
       </div>
     </div>

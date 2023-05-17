@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { createPost } from "../services/post";
-import Header from '../components/Header.jsx'
 import './AddPost.css'
 
-function AddPost(props) {
+function AddPost(post) {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
@@ -38,7 +37,6 @@ function AddPost(props) {
 
   return (
     <>
-    <Header />
     <form onSubmit={handleSubmit} className="add-post-form">
       <h2>Add a New Post</h2>
       {imagePreview && (
@@ -58,7 +56,6 @@ function AddPost(props) {
       </div>
 
       <div className="add-post-form__input">
-        <label htmlFor="caption-input">Caption</label>
         <textarea
           id="caption-input"
           value={caption}
