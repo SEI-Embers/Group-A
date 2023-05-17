@@ -1,11 +1,11 @@
 import api from './apiConfig'
-import jwtDecode from 'jwt-decode'
+// import jwtDecode from 'jwt-decode'
 
 export const signUp = async (credentials) => {
   try {
-    const resp = await api.post('/sign-up', credentials)
+    const resp = await api.post('/user/signup', credentials)
     localStorage.setItem('token', resp.data.token)
-    const user = jwtDecode(resp.data.token)
+    const user = resp.data.token
     return user
   } catch (error) {
     throw error
@@ -14,9 +14,9 @@ export const signUp = async (credentials) => {
 
 export const signIn = async (credentials) => {
   try {
-    const resp = await api.post('/sign-in', credentials)
+    const resp = await api.post('/user/login', credentials)
     localStorage.setItem('token', resp.data.token)
-    const user = jwtDecode(resp.data.token)
+    const user = resp.data.token
     return user
   } catch (error) {
     throw error
@@ -32,11 +32,11 @@ export const signOut = async () => {
   }
 }
 
-export const verifyUser = async () => {
-  const token = localStorage.getItem('token')
-  if (token) {
-    const res = await api.get('/verify')
-    return res.data
-  }
-  return false
-}
+// export const verifyUser = async () => {
+//   const token = localStorage.getItem('token')
+//   if (token) {
+//     const res = await api.get('/verify')
+//     return res.data
+//   }
+//   return false
+// }
