@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createPost } from "../services/post";
+import Header from '../components/Header.jsx'
 import './AddPost.css'
 
 function AddPost(props) {
@@ -36,6 +37,8 @@ function AddPost(props) {
   };
 
   return (
+    <>
+    <Header />
     <form onSubmit={handleSubmit} className="add-post-form">
       <h2>Add a New Post</h2>
       {imagePreview && (
@@ -68,6 +71,7 @@ function AddPost(props) {
         Share
       </button>
     </form>
+    </>
   );
 }
 

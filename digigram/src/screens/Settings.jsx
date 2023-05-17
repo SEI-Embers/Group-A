@@ -11,10 +11,6 @@ const Settings = () => {
           <input type="text" id="username" name="username" />
         </div>
         <div className="settings-group">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" />
-        </div>
-        <div className="settings-group">
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" />
         </div>
