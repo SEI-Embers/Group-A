@@ -1,26 +1,31 @@
-import { React, useState, useEffect } from 'react';
-// import Post from '../components/Post.jsx';
+import React, { useState, useEffect } from 'react';
 import Posts from '../components/Posts.jsx';
-import './Home.css'
-import { getPosts } from '../services/post.js'
-
+import './Home.css';
+import { getPosts } from '../services/post.js';
 
 const Home = () => {
-  const [ posts, setPosts ] = useState([])
+  const [posts, setPosts] = useState([]);
+
   const fetchPosts = async () => {
-    const allPosts = await getPosts()
-    setPosts(allPosts)
-  }
+    const allPosts = await getPosts();
+    setPosts(allPosts);
+  };
 
   useEffect(() => {
-    fetchPosts()
-  }, [])
-  
+    fetchPosts();
+  }, []);
+
   return (
     <div className='container'>
-      {posts ? posts.map((post, index) => (
-        <Posts key={index} post={post}/>
-      )): <div>NO POSTS</div>}
+      {posts && posts.length ? (
+        <div className='post-grid'>
+          {posts.map((post, index) => (
+            <Posts key={index} post={post} />
+          ))}
+        </div>
+      ) : (
+        <div className='no-posts'>NO POSTS</div>
+      )}
     </div>
   );
 };
