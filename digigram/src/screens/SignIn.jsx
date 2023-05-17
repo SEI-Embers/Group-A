@@ -9,9 +9,10 @@ export default function SignIn(props) {
   const [form, setForm] = useState({
     username: "",
     password: "",
-    isError: false,
-    errorMsg: "",
   });
+
+  const [isError, setIsError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (event) => {
     setForm({
@@ -27,15 +28,16 @@ export default function SignIn(props) {
     try {
       const user = await signIn(form)
       setUser(user)
-      navigate('/')
+      console.log(user)
+      // navigate('/')
     } catch (error) {
       console.error(error)
       setForm({
-        isError: true,
-        errorMsg: 'Incorrect username and/or password. Try again.',
         username: '',
         password: '',
       })
+      setIsError(true);
+      setErrorMsg('Incorrect username and/or password. Try again.')
     }
   };
 
@@ -52,7 +54,7 @@ export default function SignIn(props) {
     }
   };
 
-  const { username, password} = form
+  const { username, password } = form
 
   return (
     <>
