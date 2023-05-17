@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import logo from './logo.png';
+import logo from '../logo.png';
 import addPostIcon from '../addpost.png';
 import homeIcon from '../home.png';
 import profileIcon from '../profile.png';
