@@ -44,7 +44,7 @@ function AddPost(props) {
         </div>
       )}
       <div className="add-post-form__input">
-        <label htmlFor="image-input">Image</label>
+        
         <input
           id="image-input"
           type="file"
