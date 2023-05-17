@@ -1,17 +1,30 @@
 import React from "react";
 // import PropTypes from "prop-types";
 import "./Posts.css";
+import { getAccount } from "../services/account.js";
+import { useState, useEffect } from "react";
 
 const Posts = ({post}) => {
+  const [ postUser, setPostUser ] = useState({})
+  const fetchPostUser = async () => {
+    const user = await getAccount(1)
+    setPostUser(user)
+    console.log(user)
+  }
+
+  useEffect(() => {
+    fetchPostUser()
+  },[])
+
   return (
     <div className="post-container">
       <div className="post-header">
-        {/* <img className="post-avatar" src={avatar} alt={`${username} avatar`} /> */}
-        <h2 className="post-username">{post.account}</h2>
+        {/* <img className="post-avatar" src={postUser.profile_pic} alt={`${postUser.username} avatar`} /> */}
+        <h2 className="post-username">{postUser.username}</h2>
       </div>
-      <img className="post-image" src={post.caption} alt={`${post.account} post`} />
+      <img className="post-image" src={post.caption} alt={`${postUser.username} post`} />
       <div className="post-caption">
-        <span className="post-username">{post.account}</span> {post.content}
+        <span className="post-username">{postUser.username}</span> {post.content}
       </div>
     </div>
   );
