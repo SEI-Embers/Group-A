@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react';
-import Header from '../components/Header';
 // import Post from '../components/Post.jsx';
 import Posts from '../components/Posts.jsx';
 import './Home.css'
