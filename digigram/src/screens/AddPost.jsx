@@ -3,7 +3,7 @@ import { createPost } from "../services/post";
 import { useNavigate } from "react-router-dom";
 import './AddPost.css'
 
-function AddPost(props) {
+function AddPost(post) {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
@@ -57,6 +57,7 @@ function AddPost(props) {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit} className="add-post-form">
       <h2>Add a New Post</h2>
       {imagePreview && (
@@ -65,7 +66,7 @@ function AddPost(props) {
         </div>
       )}
       <div className="add-post-form__input">
-        <label htmlFor="image-input">Image</label>
+        
         <input
           id="image-input"
           type="file"
@@ -76,7 +77,6 @@ function AddPost(props) {
       </div>
 
       <div className="add-post-form__input">
-        <label htmlFor="caption-input">Caption</label>
         <textarea
           id="caption-input"
           value={caption}
@@ -89,6 +89,7 @@ function AddPost(props) {
         Share
       </button>
     </form>
+    </>
   );
 }
 

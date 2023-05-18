@@ -1,5 +1,4 @@
-import React from "react";
-// import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 import "./Posts.css";
 import { getAccount } from "../services/account.js";
 import { useState, useEffect } from "react";
@@ -16,11 +15,16 @@ const Posts = ({post, user}) => {
     fetchPostUser()
     console.log(post)
   },[])
+  
 
   return (
     <div className="post-container">
       <div className="post-header">
-        {/* <img className="post-avatar" src={postUser.profile_pic} alt={`${postUser.username} avatar`} /> */}
+        <img
+          className="post-avatar"
+          src={postUser.profile_pic}
+          alt={`${postUser.username} avatar`}
+        />
         <h2 className="post-username">{postUser.username}</h2>
       </div>
       {postUser.username === user.profile.username ? <button onClick={() => deletePost(post.id)}>x</button>: <></>}
@@ -32,12 +36,5 @@ const Posts = ({post, user}) => {
     </div>
   );
 };
-
-// Posts.propTypes = {
-//   account: PropTypes.string.isRequired,
-//   // avatar: PropTypes.string.isRequired,
-//   caption: PropTypes.string.isRequired,
-//   content: PropTypes.string.isRequired,
-// };
 
 export default Posts;
