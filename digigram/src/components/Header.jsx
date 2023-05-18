@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import logo from '../logo.png';
-import addPostIcon from '../addpost.png';
-import homeIcon from '../home.png';
-import profileIcon from '../profile.png';
-import settingsIcon from '../settings.png';
+import logo from "../logo.png";
+import addPostIcon from "../addpost.png";
+import homeIcon from "../home.png";
+import profileIcon from "../profile.png";
+import settingsIcon from "../settings.png";
 import HamburgerMenu from "./HamburgerMenu";
 
 const Header = () => {
   return (
     <div className="header">
       <Link to="/" className="logo">
+        <HamburgerMenu />
         <img className="logo-icon" src={logo} alt="Logo" />
       </Link>
       <div className="menu">
@@ -30,7 +31,6 @@ const Header = () => {
         <Link to="/sign-out" className="menu-item">
           Sign Out
         </Link>
-        <HamburgerMenu />
       </div>
     </div>
   );
