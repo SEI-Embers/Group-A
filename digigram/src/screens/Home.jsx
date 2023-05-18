@@ -21,6 +21,7 @@ const Home = () => {
         <div className='post-grid'>
           {posts.map((post, index) => (
             <Posts key={index} post={post} />
+            
           ))}
         </div>
       ) : (
