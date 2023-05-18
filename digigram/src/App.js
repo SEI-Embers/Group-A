@@ -19,6 +19,7 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await getUser();
+      console.log(user)
       user ? setUser(user) : setUser(null);
     };
     fetchUser();
@@ -28,14 +29,14 @@ function App() {
     <div className="App">
       {user ? <Header img src={logo} className="App-logo" alt="logo" setUser={setUser}/> : <></>}
       <Routes>
-        {user ? <Route path="/" element={<Home setUser={setUser} />} />
+        {user ? <Route path="/" element={<Home user={user} setUser={setUser} />} />
               : <Route path="/" element={<SignIn setUser={setUser} />} />}
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Home user={user} setUser={setUser} />} />
         <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
         <Route path="/sign-out" element={<SignOut setUser={setUser} />} />
-        <Route path="/profile" element={<Profile setUser={setUser} />} />
-        <Route path="/addpost" element={<AddPost setUser={setUser} />} />
+        <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+        <Route path="/addpost" element={<AddPost user={user} setUser={setUser} />} />
         <Route path="/settings" element={<Settings setUser={setUser} />} />
       </Routes>
     </div>

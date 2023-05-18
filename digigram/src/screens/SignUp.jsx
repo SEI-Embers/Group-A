@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { signUp } from '../services/user.js'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import './SignUp.css'
+import logo from '../logo.png';
 
 export default function SignUp(props) {
   const navigate = useNavigate()
@@ -56,21 +59,11 @@ export default function SignUp(props) {
 
   return (
     <>
-      <h3>Welcome! Create Account 😃</h3>
       <form onSubmit={onSignUp}>
         <div className="container">
+        <img className="logo-icon" src={logo} alt="Logo" />
           <div className="sign-up">
-            {/* <label>Email</label>
-            <input
-              required
-              type="text"
-              name="email"
-              value={email}
-              placeholder="Enter Email"
-              onChange={handleChange}
-            /> */}
-
-            <label>Username</label>
+      <h3>Sign Up </h3>
             <input
               required
               type="text"
@@ -79,8 +72,6 @@ export default function SignUp(props) {
               placeholder="Enter Username"
               onChange={handleChange}
             />
-
-            <label>Password</label>
             <input
               required
               type="password"
@@ -89,8 +80,6 @@ export default function SignUp(props) {
               placeholder="Enter password"
               onChange={handleChange}
             />
-
-            <label>Confirm Password</label>
             <input
               required
               type="password"
@@ -103,6 +92,10 @@ export default function SignUp(props) {
           </div>
         </div>
       </form>
+      <h3>
+        {" "}
+        <Link to="/sign-in">Sign In</Link>
+      </h3>
     </>
   );
 }

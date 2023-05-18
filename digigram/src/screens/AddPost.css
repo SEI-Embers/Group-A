@@ -2,13 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    margin-top: 150px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #efefef;
     border-radius: 3px;
-    width: 500px;
-    max-width: 100%;
+    height: 25%;
+    max-height: 25%;
+    width: 600px;
+    max-width: 97%;
   }
   
   .add-post-form h2 {
@@ -19,20 +22,20 @@
   }
   
   .add-post-form__input {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     width: 100%;
   }
   
   .add-post-form__input label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-size: 16px;
     font-weight: 600;
   }
   
   .add-post-form__input input,
   .add-post-form__input textarea {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     font-size: 16px;
     border-radius: 3px;
@@ -58,4 +61,13 @@
   
   .add-post-form__submit-btn:hover {
     background-color: #3d8df0;
+  }
+
+  .add-post-form__preview {
+    padding: 10px;
+  }
+
+  form {
+    display: flex;
+    margin: 0 auto;
   }
