@@ -16,16 +16,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='container'>
+    <div className="container">
       {posts && posts.length ? (
-        <div className='post-grid'>
+        <div className="post-grid">
           {posts.map((post, index) => (
             <Posts key={index} post={post} />
-            
           ))}
         </div>
       ) : (
-        <div className='no-posts'>NO POSTS</div>
+        <div className="no-posts">NO POSTS</div>
       )}
     </div>
   );
