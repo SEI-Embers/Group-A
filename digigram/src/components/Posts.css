@@ -1,15 +1,18 @@
+.container {
+  margin-top: 0;
+}
+
 .post-container {
   width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 2px auto 60px;
   background-color: #ffffff;
   border: 1px solid #dbdbdb;
-  margin-bottom: 60px;
 }
 
 .post-header {
   display: flex;
-  align-items: center;
+  align-items: end;
   padding: 10px;
 }
 
@@ -21,12 +24,12 @@
 }
 
 .post-username {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
 }
 
 .post-image {
-  width: 100%;
+  width: 80%;
 }
 
 .post-caption {
