@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { createPost } from "../services/post";
 import { useNavigate } from "react-router-dom";
-import './AddPost.css'
+import "./AddPost.css";
 
-function AddPost(post) {
+function AddPost(props) {
   const [image, setImage] = useState(null);
-  const [caption, setCaption] = useState('');
+  const [caption, setCaption] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(image)
+    console.log(image);
 
     const formData = new FormData();
     formData.append("caption", image);
-    formData.append("account", props.user.profile.id)
-    formData.append("content", caption)
+    formData.append("account", props.user.profile.id);
+    formData.append("content", caption);
 
     // console.log(formData)
 
@@ -28,20 +28,20 @@ function AddPost(post) {
     // }).catch(error => {
     //     console.error(error);
     // });
-    
+
     // const post = {
     //   account: props.user.profile.user,
     //   caption: image,
     //   content: caption,
     // };
-    console.log(formData)
+    console.log(formData);
     await createPost(formData);
-    navigate('/')
+    navigate("/");
   };
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    console.log(file)
+    console.log(file);
     setImage(file);
 
     const reader = new FileReader();
@@ -58,37 +58,36 @@ function AddPost(post) {
 
   return (
     <>
-    <form onSubmit={handleSubmit} className="add-post-form">
-      <h2>Add a New Post</h2>
-      {imagePreview && (
-        <div className="add-post-form__preview">
-          <img src={imagePreview} alt="Preview" />
+      <form onSubmit={handleSubmit} className="add-post-form">
+        <h2>Add a New Post</h2>
+        {imagePreview && (
+          <div className="add-post-form__preview">
+            <img src={imagePreview} alt="Preview" />
+          </div>
+        )}
+        <div className="add-post-form__input">
+          <input
+            id="image-input"
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            required
+          />
         </div>
-      )}
-      <div className="add-post-form__input">
-        
-        <input
-          id="image-input"
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          required
-        />
-      </div>
 
-      <div className="add-post-form__input">
-        <textarea
-          id="caption-input"
-          value={caption}
-          onChange={handleCaptionChange}
-          placeholder="Write a caption..."
-          required
-        />
-      </div>
-      <button type="submit" className="add-post-form__submit-btn">
-        Share
-      </button>
-    </form>
+        <div className="add-post-form__input">
+          <textarea
+            id="caption-input"
+            value={caption}
+            onChange={handleCaptionChange}
+            placeholder="Write a caption..."
+            required
+          />
+        </div>
+        <button type="submit" className="add-post-form__submit-btn">
+          Share
+        </button>
+      </form>
     </>
   );
 }
