@@ -22,7 +22,8 @@ const Posts = ({post}) => {
         {/* <img className="post-avatar" src={postUser.profile_pic} alt={`${postUser.username} avatar`} /> */}
         <h2 className="post-username">{postUser.username}</h2>
       </div>
-      <img className="post-image" src={post.caption} alt={`${postUser.username} post`} />
+      {/* <AdvancedImage cldImg={myImage} /> */}
+      <img className="post-image" src={`https://res.cloudinary.com/digi-be/${post.caption}`} alt={`${postUser.username} post`} />
       <div className="post-caption">
         <span className="post-username">{postUser.username}</span> {post.content}
       </div>
