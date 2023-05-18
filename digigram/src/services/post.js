@@ -43,3 +43,22 @@ export const createPost = async (post) => {
         throw error;
     }
 };
+
+export const deletePost = async (id) => {
+    try {
+        let token = await getToken();
+
+    if (token === "Token null") {
+      return null
+    }
+
+    const headers = {
+      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Authorization: token,
+    }
+        const response = await api.delete("/posts/", id, { headers });
+        return response.data;
+    } catch (error) {
+        throw error;
+    }};

@@ -3,9 +3,8 @@ import Posts from '../components/Posts.jsx';
 import './Home.css';
 import { getPosts } from '../services/post.js';
 
-const Home = () => {
-  const [posts, setPosts] = useState([]);
-
+const Home = ({user}) => {
+  const [ posts, setPosts ] = useState([])
   const fetchPosts = async () => {
     const allPosts = await getPosts();
     setPosts(allPosts);
@@ -20,7 +19,7 @@ const Home = () => {
       {posts && posts.length ? (
         <div className="post-grid">
           {posts.map((post, index) => (
-            <Posts key={index} post={post} />
+            <Posts key={index} post={post} user={user} />
           ))}
         </div>
       ) : (
