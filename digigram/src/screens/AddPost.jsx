@@ -62,7 +62,7 @@ function AddPost(props) {
         <h2>Add a New Post</h2>
         {imagePreview && (
           <div className="add-post-form__preview">
-            <img src={imagePreview} alt="Preview" />
+            <img className="post-image" src={imagePreview} alt="Preview" />
           </div>
         )}
         <div className="add-post-form__input">

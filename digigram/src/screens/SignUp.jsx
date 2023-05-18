@@ -59,43 +59,43 @@ export default function SignUp(props) {
 
   return (
     <>
-      <form onSubmit={onSignUp}>
-        <div className="container">
+      <div className="container">
+        <form onSubmit={onSignUp}>
         <img className="logo-icon" src={logo} alt="Logo" />
-          <div className="sign-up">
-      <h3>Sign Up </h3>
-            <input
-              required
-              type="text"
-              name="username"
-              value={username}
-              placeholder="Enter Username"
-              onChange={handleChange}
-            />
-            <input
-              required
-              type="password"
-              name="password"
-              value={password}
-              placeholder="Enter password"
-              onChange={handleChange}
-            />
-            <input
-              required
-              type="password"
-              name="re_password"
-              value={re_password}
-              placeholder="Confirm Password"
-              onChange={handleChange}
-            />
-            {renderError()}
-          </div>
+        <div className="sign-up">
+          <h3>Sign Up </h3>
+          <input
+            required
+            type="text"
+            name="username"
+            value={username}
+            placeholder="Enter Username"
+            onChange={handleChange}
+          />
+          <input
+            required
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Enter password"
+            onChange={handleChange}
+          />
+          <input
+            required
+            type="password"
+            name="re_password"
+            value={re_password}
+            placeholder="Confirm Password"
+            onChange={handleChange}
+          />
+          {renderError()}
         </div>
       </form>
-      <h3>
-        {" "}
+    </div>
+    <h3>
+      {" "}
         <Link to="/sign-in">Sign In</Link>
-      </h3>
-    </>
+    </h3>
+  </>
   );
 }
