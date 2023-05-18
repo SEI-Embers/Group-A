@@ -10,8 +10,8 @@ function AddPost(post) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const post = {
-      image: image,
-      caption: caption,
+      caption: image,
+      content: caption,
     };
     await createPost(post);
     setImage(null);

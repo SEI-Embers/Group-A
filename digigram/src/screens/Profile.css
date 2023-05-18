@@ -1,25 +1,34 @@
-.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.top-container  {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  height: 200px;
+  border: 1px solide black;
+  gap: 3%px;
   }
   
-  .profile-header {
+.profile-avatar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 16px;
-    border-bottom: 1px solid #efefef;
-  }
-  
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
     border-radius: 50%;
+    border: 1px solid black;
+    padding: 3%;
   }
+
+
+.profile-pic-container {
+  display: flex;
+  height: 1000px;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 2px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}  
   
-  .profile-stats {
+.profile-stats {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,32 +37,63 @@
     border-bottom: 1px solid #efefef;
   }
   
-  .stat {
+.stat {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    padding: 10px 20px;
+    margin-top: 1%;
+    font-size: 20px;
+    width: 300px;
+    height: 30px; 
+    font-weight: bold;
+    /* background-color: rgb(0, 123, 255, 0.7); */
+    color: #fff;
+    color: black;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;  
   }
   
-  .stat-label {
+.stat-label {
     font-size: 14px;
     font-weight: 600;
   }
   
-  .stat-value {
+.stat-value {
     font-size: 16px;
     font-weight: 600;
   }
   
-  .profile-posts {
+.profile-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 16px;
     padding: 16px;
   }
   
-  .profile-post {
+.profile-post {
     width: 100%;
     height: 100%;
+    border: 1px solid black;
     object-fit: cover;
   }
+
+  .follow-button {
+    padding: 10px 20px;
+    margin-top: 1%;
+    font-size: 20px;
+    width: 150px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   
+  .follow-button:hover {
+    background-color: #0056b3;
+  }
+

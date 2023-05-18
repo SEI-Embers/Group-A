@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { signIn } from "../services/user.js";
+import { signIn, getUser } from '../services/user.js'
 import { useNavigate, Link } from "react-router-dom";
 import "./SignIn.css";
 import logo from '../logo.png';
+
+import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export default function SignIn(props) {
   const navigate = useNavigate();
@@ -31,10 +34,11 @@ export default function SignIn(props) {
     console.log(form);
 
     try {
-      const user = await signIn(form);
-      setUser(user);
-      console.log(user);
-      navigate("/");
+      await signIn(form)
+      let user = await getUser()
+      setUser(user)
+      console.log(user)
+      navigate('/')
     } catch (error) {
       console.error(error);
       setForm({

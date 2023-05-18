@@ -2,8 +2,8 @@
 import logo from './logo.png';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import { React, useState } from "react";
-// import { verifyUser } from "./services/user.js";
+import { useState, useEffect } from "react";
+import { getUser } from "./services/user.js";
 import SignIn from "./screens/SignIn.jsx";
 import SignUp from "./screens/SignUp.jsx";
 import SignOut from "./screens/SignOut.jsx";
@@ -14,19 +14,19 @@ import Settings from './screens/Settings';
 import Header from './components/Header';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
 
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const user = await verifyUser();
-  //     user ? setUser(user) : setUser(null);
-  //   };
-  //   fetchUser();
-  // }, []);
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getUser();
+      user ? setUser(user) : setUser(null);
+    };
+    fetchUser();
+  }, []);
 
   return (
     <div className="App">
-      {user ? <Header img src={logo} className="App-logo" alt="logo" /> : <></>}
+      {user ? <Header img src={logo} className="App-logo" alt="logo" setUser={setUser}/> : <></>}
       <Routes>
         {user ? <Route path="/" element={<Home setUser={setUser} />} />
               : <Route path="/" element={<SignIn setUser={setUser} />} />}
