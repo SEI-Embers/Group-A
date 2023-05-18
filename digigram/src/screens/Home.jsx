@@ -5,7 +5,7 @@ import './Home.css'
 import { getPosts } from '../services/post.js'
 
 
-const Home = () => {
+const Home = ({user}) => {
   const [ posts, setPosts ] = useState([])
   const fetchPosts = async () => {
     const allPosts = await getPosts()
@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div className='container'>
       {posts ? posts.map((post, index) => (
-        <Posts key={index} post={post}/>
+        <Posts key={index} post={post} user={user} />
       )): <div>NO POSTS</div>}
     </div>
   );
