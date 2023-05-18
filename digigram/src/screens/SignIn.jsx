@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { signIn } from '../services/user.js'
-import { useNavigate, Link } from 'react-router-dom';
+import { signIn } from "../services/user.js";
+import { useNavigate, Link } from "react-router-dom";
+import "./SignIn.css";
+import logo from '../logo.png';
 
 export default function SignIn(props) {
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ export default function SignIn(props) {
       [event.target.name]: event.target.value,
     });
   };
-  
+
   // Handle sign-in form submission
   const onSignIn = async (event) => {
     event.preventDefault();
@@ -32,15 +34,15 @@ export default function SignIn(props) {
       const user = await signIn(form);
       setUser(user);
       console.log(user);
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.error(error);
       setForm({
-        username: '',
-        password: '',
+        username: "",
+        password: "",
       });
       setIsError(true);
-      setErrorMsg('Incorrect username and/or password. Try again.');
+      setErrorMsg("Incorrect username and/or password. Try again.");
     }
   };
 
@@ -63,11 +65,12 @@ export default function SignIn(props) {
   return (
     <>
       {/* Heading */}
-      <h1>Digigram</h1>
 
       <form onSubmit={onSignIn}>
         <div className="sign-in">
-          <h3>Sign In</h3>
+        <img className="logo-icon" src={logo} alt="Logo" />
+          <h1 className="digimon-font">Digigram</h1>
+          <br />
           <input
             required
             type="text"
@@ -90,7 +93,10 @@ export default function SignIn(props) {
       </form>
 
       {/* Link to sign-up page */}
-      <Link to="/sign-up">Sign Up</Link>
+      <h3>
+        {" "}
+        <Link to="/sign-up">Sign Up</Link>
+      </h3>
     </>
   );
 }
