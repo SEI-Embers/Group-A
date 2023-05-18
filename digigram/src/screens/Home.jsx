@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Posts from '../components/Posts.jsx';
-import './Home.css';
-import { getPosts } from '../services/post.js';
+import React, { useState, useEffect } from "react";
+import Posts from "../components/Posts.jsx";
+import "./Home.css";
+import { getPosts } from "../services/post.js";
 
-const Home = ({user}) => {
-  const [ posts, setPosts ] = useState([])
+const Home = ({ user }) => {
+  const [posts, setPosts] = useState([]);
   const fetchPosts = async () => {
     const allPosts = await getPosts();
     setPosts(allPosts);
@@ -12,7 +12,7 @@ const Home = ({user}) => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [posts]);
 
   return (
     <div className="container">
