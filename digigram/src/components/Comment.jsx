@@ -24,8 +24,8 @@ export default function Comment(props) {
     }
 
     return (
-        <div>{comment?.email}: ${comment?.content}
-        { user?.email === comment?.email && 
+        <div>{comment?.username}: ${comment?.content}
+        { user?.username === comment?.username && 
           (<>
             <form onSubmit={handleUpdate}>
                 <input type="text" placeholder="Type here" onChange={handleUpdateChange} />
