@@ -46,6 +46,8 @@ export const getUser = async () => {
       return null
     }
 
+    console.log(token)
+
     const headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -53,6 +55,7 @@ export const getUser = async () => {
     }
 
     const response = await api.get("/user/profile", { headers });
+    console.log(response)
     return response.data;
   }catch (error) {
     throw error;

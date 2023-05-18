@@ -13,6 +13,7 @@ const Posts = ({post}) => {
 
   useEffect(() => {
     fetchPostUser()
+    console.log(post)
   },[])
 
   return (
