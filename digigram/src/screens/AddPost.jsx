@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createPost } from "../services/post";
+import { useNavigate } from "react-router-dom";
 import './AddPost.css'
 
 function AddPost(post) {
@@ -7,20 +8,40 @@ function AddPost(post) {
   const [caption, setCaption] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const post = {
-      caption: image,
-      content: caption,
-    };
-    await createPost(post);
-    setImage(null);
-    setCaption('');
-    setImagePreview(null);
+
+    console.log(image)
+
+    const formData = new FormData();
+    formData.append("caption", image);
+    formData.append("account", props.user.profile.id)
+    formData.append("content", caption)
+
+    // console.log(formData)
+
+    // axios.post('https://digi-be.herokuapp.com/posts/', formData, {
+    // }).then(response => {
+    //     console.log(response.data);
+    // }).catch(error => {
+    //     console.error(error);
+    // });
+    
+    // const post = {
+    //   account: props.user.profile.user,
+    //   caption: image,
+    //   content: caption,
+    // };
+    console.log(formData)
+    await createPost(formData);
+    navigate('/')
   };
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
+    console.log(file)
     setImage(file);
 
     const reader = new FileReader();

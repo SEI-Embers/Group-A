@@ -6,13 +6,10 @@ const Posts = ({ post }) => {
   const [postUser, setPostUser] = useState({});
 
   useEffect(() => {
-    const fetchPostUser = async () => {
-      const user = await getAccount(post.account);
-      setPostUser(user);
-    };
-
-    fetchPostUser();
-  }, [post.account]);
+    fetchPostUser()
+    console.log(post)
+  },[])
+  
 
   return (
     <div className="post-container">
@@ -24,11 +21,8 @@ const Posts = ({ post }) => {
         />
         <h2 className="post-username">{postUser.username}</h2>
       </div>
-      <img
-        className="post-image"
-        src={post.caption}
-        alt={`${postUser.username} post`}
-      />
+      {/* <AdvancedImage cldImg={myImage} /> */}
+      <img className="post-image" src={`https://res.cloudinary.com/digi-be/${post.caption}`} alt={`${postUser.username} post`} />
       <div className="post-caption">
         <span className="post-username">{postUser.username}</span> {post.content}
       </div>

@@ -27,15 +27,12 @@ export default function SignIn(props) {
 
   // Handle sign-in form submission
   const onSignIn = async (event) => {
-    event.preventDefault();
-    const { setUser } = props;
-    console.log(form);
-
+    event.preventDefault()
+    const { setUser } = props
     try {
       await signIn(form)
       let user = await getUser()
       setUser(user)
-      console.log(user)
       navigate('/')
     } catch (error) {
       console.error(error);
