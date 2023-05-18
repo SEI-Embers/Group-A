@@ -53,7 +53,7 @@ button {
 }
 
 div {
-    height: 70%;
+    height: 50%;
 }
 
 form {
@@ -75,7 +75,5 @@ button.danger:hover {
 }
 
 .logo-icon {
-    width: 50%;
-    height: auto;
-    object-fit: contain;
+    width: 300px;
 }

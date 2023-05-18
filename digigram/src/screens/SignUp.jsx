@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { signUp } from '../services/user.js'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './SignUp.css'
 import logo from '../logo.png';
 
@@ -91,6 +92,10 @@ export default function SignUp(props) {
           </div>
         </div>
       </form>
+      <h3>
+        {" "}
+        <Link to="/sign-in">Sign In</Link>
+      </h3>
     </>
   );
 }
