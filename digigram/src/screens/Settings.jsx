@@ -4,15 +4,16 @@ import "./Settings.css";
 const Settings = () => {
   return (
     <div className="settings-container">
-      <h2 className="settings-title">Settings</h2>
       <form className="settings-form">
+      <h2 className="settings-title">Settings</h2>
         <div className="settings-group">
-          <label htmlFor="username">Username</label>
-          <input type="text" id="username" name="username" />
-        </div>
-        <div className="settings-group">
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" />
+          <input type="text" id="username" name="username" 
+          placeholder="Username"
+          />
+        
+          <input type="password" id="password" name="password"
+          placeholder="Password"
+          />
         </div>
         <button className="settings-button">Save Changes</button>
       </form>

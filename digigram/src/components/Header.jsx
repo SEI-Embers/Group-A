@@ -10,11 +10,11 @@ import signoutIcon from '../signout.png'
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <Link to="/" className="logo">
         <img className="logo-icon" src={logo} alt="Logo" />
       </Link>
-      <div className="menu">
+      <nav className="menu">
         <Link to="/" className="menu-item">
           <img className="icon" src={homeIcon} alt="Home" />
         </Link>
@@ -30,8 +30,8 @@ const Header = () => {
         <Link to="/sign-out" className="menu-item signout">
         <img className="icon" src={signoutIcon} alt="Sign Out" />
         </Link>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 

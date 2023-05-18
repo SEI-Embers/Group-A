@@ -1,11 +1,17 @@
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 24px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #efefef;
-  }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #efefef;
+    }
+  
   
   .logo {
     font-size: 24px;
@@ -15,6 +21,7 @@
   }
   
   .menu {
+    top: 0;
     display: flex;
     align-items: center;
     height: 40px;
@@ -40,52 +47,8 @@
   
   
   .logo-icon {
-<<<<<<< HEAD
     width: 90px;
     height: 65px;
   }
-=======
-    width: 60px;
-    height: 45px;
-  }
 
-/* Media query for mobile devices */
-@media only screen and (max-width: 600px) {
-  .header {
-    flex-direction: column;
-    justify-content: space-between; /* Add this line */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 75%;
-    background-color: #ffffff;
-    padding: 12px;
-    border-top: 1px solid #efefef;
-  }
-
-  .menu {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Add this line */
-    flex-wrap: wrap; /* Add this line */
-  }
-
-  .menu-item {
-    margin-left: 16px;
-    margin-top: 12px; /* Add this line */
-  }
-
-  .post-header {
-    align-self: flex-start;
-  }
-
-  .logo-icon {
-    display: none;
-  }
-
-  .menu-item[href="/sign-out"] {
-    display: none;
-  }
-}
->>>>>>> 0d079d2a4c565db0d52a6ac7e60bc340eb13d8c5
+ 

@@ -4,8 +4,6 @@ import { useNavigate, Link } from "react-router-dom";
 import "./SignIn.css";
 import logo from '../logo.png';
 
-import { useNavigate } from 'react-router-dom'
-import { Link } from "react-router-dom";
 
 export default function SignIn(props) {
   const navigate = useNavigate();

@@ -5,7 +5,6 @@ import Header from "../components/Header";
 const Profile = ({ username, avatar, posts, followers, following }) => {
   return (
     <>
-    <Header />
       <div className="top-container">
         <div className="profile-pic-container">
         <img className="profile-avatar" src="https://static.wikia.nocookie.net/supermarioglitchy4/images/f/f3/Big_chungus.png" alt={`${username} avatar`} />
