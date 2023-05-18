@@ -1,6 +1,12 @@
 import api from './apiConfig'
 // import jwtDecode from 'jwt-decode'
 
+const getToken = () => {
+  return new Promise(resolve => {
+      resolve(`Token ${localStorage.getItem('token') || null}`)
+  })
+}
+
 export const signUp = async (credentials) => {
   try {
     const resp = await api.post('/user/signup', credentials)
@@ -29,6 +35,27 @@ export const signOut = async () => {
     return true
   } catch (error) {
     throw error
+  }
+}
+
+export const getUser = async () => {
+  try {
+    let token = await getToken();
+
+    if (token === "Token null") {
+      return null
+    }
+
+    const headers = {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: token,
+    }
+
+    const response = await api.get("/user/profile", { headers });
+    return response.data;
+  }catch (error) {
+    throw error;
   }
 }
 
