@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./Posts.css";
 import { getAccount } from "../services/account.js";
-import { useState, useEffect } from "react";
-import { deletePost } from "../services/post";
 
-const Posts = ({post, user}) => {
-  const [ postUser, setPostUser ] = useState({})
-  const fetchPostUser = async () => {
-    const user = await getAccount(post.account)
-    setPostUser(user)
-  }
+const Posts = ({ post }) => {
+  const [postUser, setPostUser] = useState({});
 
   useEffect(() => {
-    fetchPostUser()
-    console.log(post)
-  },[])
-  
+    const fetchPostUser = async () => {
+      const user = await getAccount(post.account);
+      setPostUser(user);
+    };
+
+    fetchPostUser();
+  }, [post.account]);
 
   return (
     <div className="post-container">
@@ -27,9 +24,11 @@ const Posts = ({post, user}) => {
         />
         <h2 className="post-username">{postUser.username}</h2>
       </div>
-      {postUser.username === user.profile.username ? <button onClick={() => deletePost(post.id)}>x</button>: <></>}
-      {/* <AdvancedImage cldImg={myImage} /> */}
-      <img className="post-image" src={`https://res.cloudinary.com/digi-be/${post.caption}`} alt={`${postUser.username} post`} />
+      <img
+        className="post-image"
+        src={post.caption}
+        alt={`${postUser.username} post`}
+      />
       <div className="post-caption">
         <span className="post-username">{postUser.username}</span> {post.content}
       </div>

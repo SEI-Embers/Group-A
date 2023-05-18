@@ -1,7 +1,7 @@
 import React from "react";
 import './Profile.css'
 
-const Profile = ({ user, posts, }) => {
+const Profile = ({ user, posts}) => {
   return (
     <>
       <div className="top-container">

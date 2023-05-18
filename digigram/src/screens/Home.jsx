@@ -3,8 +3,9 @@ import Posts from '../components/Posts.jsx';
 import './Home.css';
 import { getPosts } from '../services/post.js';
 
-const Home = ({user}) => {
-  const [ posts, setPosts ] = useState([])
+const Home = () => {
+  const [posts, setPosts] = useState([]);
+
   const fetchPosts = async () => {
     const allPosts = await getPosts();
     setPosts(allPosts);
@@ -16,15 +17,11 @@ const Home = ({user}) => {
 
   return (
     <div className="container">
-      {posts && posts.length ? (
         <div className="post-grid">
-          {posts.map((post, index) => (
-            <Posts key={index} post={post} user={user} />
-          ))}
+          {posts ? posts.map((post, index) => (<Posts key={index} post={post} />))
+           : (<div className="no-posts">NO POSTS</div>
+           )}
         </div>
-      ) : (
-        <div className="no-posts">NO POSTS</div>
-      )}
     </div>
   );
 };
