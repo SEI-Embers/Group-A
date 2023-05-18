@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import "./Posts.css";
 import { getAccount } from "../services/account.js";
 import { useState, useEffect } from "react";

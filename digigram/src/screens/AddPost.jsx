@@ -3,7 +3,7 @@ import { createPost } from "../services/post";
 import { useNavigate } from "react-router-dom";
 import './AddPost.css'
 
-function AddPost(post) {
+function AddPost(props) {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState('');
   const [imagePreview, setImagePreview] = useState(null);

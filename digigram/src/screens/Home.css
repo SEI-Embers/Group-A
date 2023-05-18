@@ -29,7 +29,6 @@ a:hover {
   margin: 0 auto;
   margin-top: 5%;
   z-index: -1;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -39,9 +38,8 @@ a:hover {
 }
 
 .post-grid {
-  display: grid;
-  grid-template-columns:1fr;
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column-reverse;
   margin-top: 10px;
 }
 
