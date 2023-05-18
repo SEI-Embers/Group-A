@@ -6,14 +6,15 @@ import addPostIcon from '../addpost.png';
 import homeIcon from '../home.png';
 import profileIcon from '../profile.png';
 import settingsIcon from '../settings.png';
+import signoutIcon from '../signout.png'
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <Link to="/" className="logo">
         <img className="logo-icon" src={logo} alt="Logo" />
       </Link>
-      <div className="menu">
+      <nav className="menu">
         <Link to="/" className="menu-item">
           <img className="icon" src={homeIcon} alt="Home" />
         </Link>
@@ -26,11 +27,11 @@ const Header = () => {
         <Link to="/settings" className="menu-item">
           <img className="icon" src={settingsIcon} alt="Settings" />
         </Link>
-        <Link to="/sign-out" className="menu-item">
-          Sign Out
+        <Link to="/sign-out" className="menu-item signout">
+        <img className="icon" src={signoutIcon} alt="Sign Out" />
         </Link>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 

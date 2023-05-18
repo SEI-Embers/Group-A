@@ -1,25 +1,24 @@
-import React from "react";
-// import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 import "./Posts.css";
 import { getAccount } from "../services/account.js";
-import { useState, useEffect } from "react";
 
-const Posts = ({post}) => {
-  const [ postUser, setPostUser ] = useState({})
-  const fetchPostUser = async () => {
-    const user = await getAccount(post.account)
-    setPostUser(user)
-  }
+const Posts = ({ post }) => {
+  const [postUser, setPostUser] = useState({});
 
   useEffect(() => {
     fetchPostUser()
     console.log(post)
   },[])
+  
 
   return (
     <div className="post-container">
       <div className="post-header">
-        {/* <img className="post-avatar" src={postUser.profile_pic} alt={`${postUser.username} avatar`} /> */}
+        <img
+          className="post-avatar"
+          src={postUser.profile_pic}
+          alt={`${postUser.username} avatar`}
+        />
         <h2 className="post-username">{postUser.username}</h2>
       </div>
       {/* <AdvancedImage cldImg={myImage} /> */}
@@ -30,12 +29,5 @@ const Posts = ({post}) => {
     </div>
   );
 };
-
-// Posts.propTypes = {
-//   account: PropTypes.string.isRequired,
-//   // avatar: PropTypes.string.isRequired,
-//   caption: PropTypes.string.isRequired,
-//   content: PropTypes.string.isRequired,
-// };
 
 export default Posts;

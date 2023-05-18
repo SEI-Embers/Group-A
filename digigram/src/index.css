@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+ @font-face {
+  font-family: "Digimon";
+  src: local("Digimon"),
+   url("./fonts/Digimon.ttf") format("truetype");
+ }

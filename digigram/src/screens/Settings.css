@@ -1,52 +1,51 @@
 .settings-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 32px;
-  }
-  
-  .settings-title {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 32px;
-  }
-  
-  .settings-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .settings-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-  }
-  
-  .settings-group label {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  
-  .settings-group input {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .settings-button {
-    margin-top: 32px;
-    padding: 8px 16px;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #3897f0;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .settings-button:hover {
-    background-color: #38a3f0;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 70px;
+}
+
+.settings-title {
+  font-size: 28px;
+  padding: 1px;
+  font-weight: 600;
+  margin-bottom: -20px;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.settings-group input {
+  font-size: 16px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.settings-button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #3897f0;
+  width: 100%;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.settings-button:hover {
+  background-color: #38a3f0;
+}
