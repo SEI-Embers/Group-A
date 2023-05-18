@@ -1,6 +1,5 @@
-
-import logo from './logo.png';
-import './App.css';
+import logo from "./logo.png";
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { React, useState } from "react";
 // import { verifyUser } from "./services/user.js";
@@ -10,8 +9,8 @@ import SignOut from "./screens/SignOut.jsx";
 import Home from "./screens/Home.jsx";
 import Profile from "./screens/Profile.jsx";
 import AddPost from "./screens/AddPost.jsx";
-import Settings from './screens/Settings';
-import Header from './components/Header';
+import Settings from "./screens/Settings";
+import Header from "./components/Header";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,8 +27,11 @@ function App() {
     <div className="App">
       {user ? <Header img src={logo} className="App-logo" alt="logo" /> : <></>}
       <Routes>
-        {user ? <Route path="/" element={<Home setUser={setUser} />} />
-              : <Route path="/" element={<SignIn setUser={setUser} />} />}
+        {user ? (
+          <Route path="/" element={<Home setUser={setUser} />} />
+        ) : (
+          <Route path="/" element={<SignIn setUser={setUser} />} />
+        )}
         <Route path="/home" element={<Home />} />
         <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
         <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
