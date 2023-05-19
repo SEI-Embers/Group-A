@@ -67,20 +67,9 @@ Digigram is an app that combines the fun and excitement of Digimon with the popu
 
 ## Usage
 
-1. Clone the repository:
+1. Visit:
 
    ```
-   git clone https://github.com/your/repository.git
+   [https://unique-fudge-645667.netlify.app/](https://unique-fudge-645667.netlify.app/)
 
-2. Install the dependencies:
-
-  ```
-  npm install
-
-3. Run the app:
-
-  ```
-  npm start
-
-4. The app will be running at http://localhost:3000
-
+2. Sign-up and enjoy!
