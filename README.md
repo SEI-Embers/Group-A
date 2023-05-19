@@ -69,7 +69,6 @@ Digigram is an app that combines the fun and excitement of Digimon with the popu
 
 1. Visit:
 
-   ```
    [https://unique-fudge-645667.netlify.app/](https://unique-fudge-645667.netlify.app/)
 
 2. Sign-up and enjoy!
