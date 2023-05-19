@@ -15,7 +15,7 @@ Digigram is an app that combines the fun and excitement of Digimon with the popu
 - Explore and Discover: Users can explore the app to discover new posts, profiles, and engage with the Digigram community.
 
 ## Directory Structure
-.
+```md
 ├── App.css
 ├── App.js
 ├── App.test.js
@@ -57,7 +57,7 @@ Digigram is an app that combines the fun and excitement of Digimon with the popu
 │   └── user.js
 ├── settings.png
 └── setupTests.js
-
+```
 ## Technologies Used
 
 - React
